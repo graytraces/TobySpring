@@ -46,7 +46,7 @@ public class UserDao {
 
 	private Connection getConnection() throws ClassNotFoundException, SQLException {
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection c = DriverManager.getConnection("jdbc:mysql://localhost/springbook", "spring", "book");
+		Connection c = DriverManager.getConnection("jdbc:mysql://cardi.iptime.org:6306/springtest", "springtest", "springtest1234");
 		return c;
 	}
 	
