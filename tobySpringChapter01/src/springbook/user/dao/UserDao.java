@@ -5,18 +5,38 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.datasource.SimpleDriverDataSource;
+
 import springbook.user.domain.User;
 
 public class UserDao {
 	
-	private ConnectionMaker connectionMaker;
+	private DataSource dataSource;
 	
-	public void setConnectionMaker(ConnectionMaker connectionMaker){
-		this.connectionMaker = connectionMaker;
+	
+	public UserDao userDao(){
+		UserDao userDao = new UserDao();
+		userDao.setDataSource(dataSource());
+		return userDao;
+	}
+	
+	public void setDataSource(DataSource dataSource){
+		this.dataSource = dataSource;
+	}
+	
+	public DataSource dataSource(){
+		SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
+		dataSource.setDriverClass(com.mysql.jdbc.Driver.class);
+		dataSource.setUrl("jdbc:mysql://cardi.iptime.org:6306/springtest");
+		dataSource.setUsername("springtest");
+		dataSource.setPassword("springtest1234");
+		return dataSource;
 	}
 	
 	public void add(User user) throws ClassNotFoundException, SQLException{
-		Connection c = connectionMaker.makeConnection();
+		Connection c = dataSource.getConnection();
 		
 		PreparedStatement ps = c.prepareStatement(
 				"insert into users(id, name, password) values(?, ?, ?)");
@@ -31,7 +51,7 @@ public class UserDao {
 	}
 	
 	public User get(String id) throws ClassNotFoundException, SQLException{
-		Connection c = connectionMaker.makeConnection();
+		Connection c = dataSource.getConnection();
 		
 		PreparedStatement ps = c.prepareStatement(
 				"select * from users where id = ?" );
