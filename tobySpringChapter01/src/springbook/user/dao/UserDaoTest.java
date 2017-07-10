@@ -25,12 +25,15 @@ public class UserDaoTest {
 		System.out.println(user.getId() + "등록성공");
 		
 		User user2 = dao.get(user.getId());
-		System.out.println(user2.getName());
-		System.out.println(user2.getPassword());
-		System.out.println(user2.getId() + "조회 성공");
 		
-		CountingConnectionMaker ccm = context.getBean("connectionMaker", CountingConnectionMaker.class);
-		System.out.println("Connection counter : " + ccm.getCounter());
+		if(!user.getName().equals(user2.getName())){
+			System.out.println("테스트 실패 (name)");
+		}
+		else if(!user.getPassword().equals(user2.getPassword())){
+			System.out.println("테스트 실패 (password)");
+		}else {
+			System.out.println("조회 테스트 성공");
+		}
 		
 	}
 
