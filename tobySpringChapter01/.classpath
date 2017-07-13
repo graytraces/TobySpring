@@ -10,5 +10,6 @@
 	<classpathentry kind="lib" path="lib/spring-asm-3.1.4.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-expression-3.2.18.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring-jdbc-3.2.18.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/com.springsource.org.junit-4.7.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
