@@ -24,12 +24,17 @@ public class UserDaoTest {
 		
 		UserDao dao = context.getBean("userDao", UserDao.class);
 		
+		dao.deleteAll();
+		assertThat(dao.getCount(), is(0));
+		
 		User user = new User();
 		user.setId("whiteship");
 		user.setName("백기선");
 		user.setPassword("married");
 		
 		dao.add(user);
+
+		assertThat(dao.getCount(), is(1));
 		
 		System.out.println(user.getId() + "등록성공");
 		
