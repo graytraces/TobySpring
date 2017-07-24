@@ -12,5 +12,7 @@
 	<classpathentry kind="lib" path="lib/spring-jdbc-3.2.18.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/com.springsource.org.junit-4.7.0.jar"/>
 	<classpathentry kind="lib" path="lib/spring-dao-2.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/spring-test-3.2.18.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring-aop-3.2.18.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
