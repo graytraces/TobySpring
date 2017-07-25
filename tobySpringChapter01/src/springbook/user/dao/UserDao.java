@@ -16,30 +16,9 @@ public class UserDao {
 	
 	private DataSource dataSource;
 	
-	/*
-	public UserDao userDao(){
-		UserDao userDao = new UserDao();
-		userDao.setDataSource(dataSource());
-		return userDao;
-	}
-	*/
-	
 	public void setDataSource(DataSource dataSource){
 		this.dataSource = dataSource;
 	}
-	/*
-	public DataSource dataSource(){
-		SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-		dataSource.setDriverClass(com.mysql.jdbc.Driver.class);
-		dataSource.setUrl("jdbc:mysql://cardi.iptime.org:6306/springtest");
-		dataSource.setUsername("springtest");
-		dataSource.setPassword("springtest1234");
-		return dataSource;
-	}
-	*/
-	
-
-	
 	
 	public void deleteAll() throws SQLException{
 		Connection c = dataSource.getConnection();
