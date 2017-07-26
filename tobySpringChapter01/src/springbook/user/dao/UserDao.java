@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import springbook.user.domain.User;
 
@@ -100,8 +99,25 @@ public class UserDao {
 		return count;
 	}
 	
-	public void add(User user) throws ClassNotFoundException, SQLException{
-		StatementStrategy strategy = new AddStatement(user);
+	public void add(final User user) throws ClassNotFoundException, SQLException{
+		
+		class AddStatement implements StatementStrategy {
+
+			@Override
+			public PreparedStatement makePreparedStatement(Connection c) throws SQLException {
+
+				PreparedStatement ps = c.prepareStatement(
+						"insert into users(id, name, password) values(?, ?, ?)");
+				ps.setString(1,  user.getId());
+				ps.setString(2,  user.getName());
+				ps.setString(3,  user.getPassword());
+				return ps;
+			}
+
+		}
+		
+		
+		StatementStrategy strategy = new AddStatement();
 		jdbcContextWithStatementStrategy(strategy);
 		
 	}
