@@ -20,14 +20,15 @@ public abstract class UserDao {
 		this.dataSource = dataSource;
 	}
 	
-	public void deleteAll() throws SQLException{
+	
+	public void jdbcContextWithStatementStrategy(StatementStrategy stmt)throws SQLException{
+
 		Connection c = null;
 		PreparedStatement ps = null;
 		try{
 			c = dataSource.getConnection();
-			StatementStrategy strategy = new DeleteAllStatement();
 			
-			ps = strategy.makePreparedStatement(c);
+			ps = stmt.makePreparedStatement(c);
 			ps.executeUpdate();
 				
 		}catch(SQLException e){
@@ -49,7 +50,11 @@ public abstract class UserDao {
 				}
 			}
 		}
-		
+	}
+	
+	public void deleteAll() throws SQLException{
+		StatementStrategy strategy = new DeleteAllStatement();
+		jdbcContextWithStatementStrategy(strategy);		
 	}
 	
 	
