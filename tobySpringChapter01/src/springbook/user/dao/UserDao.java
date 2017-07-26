@@ -12,7 +12,7 @@ import org.springframework.jdbc.datasource.SimpleDriverDataSource;
 
 import springbook.user.domain.User;
 
-public class UserDao {
+public abstract class UserDao {
 	
 	private DataSource dataSource;
 	
@@ -25,7 +25,7 @@ public class UserDao {
 		PreparedStatement ps = null;
 		try{
 			c = dataSource.getConnection();
-			ps = c.prepareStatement("delete from users");
+			ps = makeStatement(c);
 			ps.executeUpdate();
 				
 		}catch(SQLException e){
@@ -49,6 +49,8 @@ public class UserDao {
 		}
 		
 	}
+	
+	abstract protected PreparedStatement makeStatement(Connection c)throws SQLException;
 	
 	public int getCount() throws SQLException{
 		
