@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="tobySpring/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="tobySpring/lib/com.springsource.org.junit-4.7.0.jar"/>
+	<classpathentry kind="lib" path="tobySpring/lib/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="tobySpring/lib/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="tobySpring/lib/spring-aop-3.2.18.RELEASE.jar"/>
+	<classpathentry kind="lib" path="tobySpring/lib/spring-asm-3.1.4.RELEASE.jar"/>
+	<classpathentry kind="lib" path="tobySpring/lib/spring-beans-3.2.18.RELEASE.jar"/>
+	<classpathentry kind="lib" path="tobySpring/lib/spring-context-3.2.18.RELEASE.jar"/>
+	<classpathentry kind="lib" path="tobySpring/lib/spring-core-3.2.18.RELEASE.jar"/>
+	<classpathentry kind="lib" path="tobySpring/lib/spring-dao-2.0.3.jar"/>
+	<classpathentry kind="lib" path="tobySpring/lib/spring-expression-3.2.18.RELEASE.jar"/>
+	<classpathentry kind="lib" path="tobySpring/lib/spring-jdbc-3.2.18.RELEASE.jar"/>
+	<classpathentry kind="lib" path="tobySpring/lib/spring-test-3.2.18.RELEASE.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
